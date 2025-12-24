@@ -33,7 +33,7 @@ public class CommentService {
                 .user(user)
                 .movieId(movieId)
                 .content(req.getContent())
-                .createAt(Instant.now())
+                .createdAt(Instant.now())
                 .build());
     }
 
@@ -43,7 +43,7 @@ public class CommentService {
                         "id", c.getId(),
                         "movieId", c.getMovieId(),
                         "content", c.getContent(),
-                        "createdAt", c.getCreateAt(),
+                        "createdAt", c.getCreatedAt(),
                         "userEmail", c.getUser().getEmail(),
                         "fullName", c.getUser().getFullName()
                 ))
