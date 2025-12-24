@@ -1,4 +1,4 @@
-import { axiosClient } from ".axiosClient";
+import { axiosClient } from "./axiosClient";
 
 export const iphimApi = {
     latest: (page = 1) => axiosClient.get(`/api/iphim/latest?page=${page}`),
