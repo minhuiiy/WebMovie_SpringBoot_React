@@ -20,7 +20,7 @@ public class IphimClient {
 
     public String latest(int page) {
         return client.get()
-                .uri(uri -> uri.path("api/films/phim-moi-cap-nhat")
+                .uri(uri -> uri.path("/api/films/phim-moi-cap-nhat")
                         .queryParam("page", page)
                         .build())
                 .retrieve()

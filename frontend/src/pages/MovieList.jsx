@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { iphimApi } from "../api/iphim";
-import MovieCard from "../components/MovieCard";
+import IphimCard from "../components/IphimCard";
 
 export default function MovieList() {
     const [page, setPage] = useState(1);
     const [data, setData] = useState(null);
 
     useEffect(() => {
-    moviesApi.popular(page).then(res => setData(res.data)).catch(console.error);
+        iphimApi.latest(page).then(res => setData(res.data)).catch(console.error);
     }, [page]);
 
     return (
@@ -21,7 +21,7 @@ export default function MovieList() {
 
         {!data ? "Loading..." : (
         <div style={{ display:"grid", gridTemplateColumns:"repeat(5, 1fr)", gap:12 }}>
-            {data.results?.map(m => <MovieCard key={m.id} m={m} />)}
+            {(data.items || []).map((m, i) => <IphimCard key={m.slug || i} m={m} />)}
         </div>
         )}
     </div>
